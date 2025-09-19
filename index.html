@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <!-- Unicons CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- CSS External -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+    <!-- Header Section -->
+    <header class="text-center mb-8">
+            <h1 class="text-4xl text-slate-800 font-bold mb-2">To Do List</h1>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <form class="mb-8" onsubmit="addTodo(event)">
+             <div class="space-y-4">
+                    <input 
+                        type="text" 
+                        id="todo-input" 
+                        placeholder="Add a new task..."
+                        class="border border-gray-300 p-4 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                    <input 
+                        type="date" 
+                        id="todo-date" 
+                        class="border border-gray-300 p-4 rounded-lg w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                    <button 
+                        type="submit"
+                        class="btn bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg w-full font-semibold">
+                        <i class="uil uil-plus mr-2"></i>Add Todo
+                    </button>
+                </div>
+        </form>
+
+        <!-- Controls Section -->
+        <section class="mb-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="filters">
+                    <span id="all" class="active" onclick="filterTodo('all')">All</span>
+                    <span id="uncompleted" onclick="filterTodo('uncompleted')">Uncompleted</span>
+                    <span id="completed" onclick="filterTodo('completed')">Completed</span>
+                </div>
+                <button 
+                    type="button" 
+                    class="clear-btn bg-red-500 hover:bg-red-600 text-white px-6 py-2 float-right rounded-lg" 
+                    onclick="clearallTodo()">
+                    <i class="uil uil-trash mr-2"></i>Clear All
+                </button>
+            </div>
+        </section>
+
+        <!-- List of Todos -->
+        <section class="mt-6">
+            <header class="mb-4">
+                <h2 class="text-2xl text-slate-800 font-bold">Your To Do's</h2>
+                <p class="text-slate-600 text-sm" id="todo-count">0 tasks</p>
+            </header>
+
+            <ul class="task-box mt-4" id="todo-list">
+                <!-- Todo items will be dynamically added here -->
+            </ul>
+            <div class="empty-state" id="empty-state" style="display: none;">
+                    <i class="uil uil-clipboard-notes"></i>
+                    <h3 class="text-xl font-semibold mb-2">No tasks yet!</h3>
+                    <p>Add your first task above to get started.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer Section -->
+    <footer class="text-center mt-8 pt-6 border-t border-gray-200">
+        <p class="text-slate-600">&copy; 2025 Faddilla Aulia Dara Website</p>
+    </footer>
+</div>
+
+    <!-- JS External -->
+     <script src="js/script.js"></script>
+
+</body>
+</html>
